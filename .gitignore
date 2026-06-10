@@ -31,5 +31,8 @@ venv/
 # Large raw GIS datasets
 01_south_florida_qgis_map/data_raw/GeoStreets_gdb_3900633969641609277.geojson
 
+# Large dataset
+02_photogrammetry/data/raw/
+
 # Personal/private notes
 01_south_florida_qgis_map/notes/6:9.txt
