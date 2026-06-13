@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+            <style>
+                .leaflet-interactive:focus {
+                    outline: none;
+                }
+            </style>
+            
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bcfe896e502453289e2aa5998b90f0b6 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_bcfe896e502453289e2aa5998b90f0b6" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bcfe896e502453289e2aa5998b90f0b6 = L.map(
+                "map_bcfe896e502453289e2aa5998b90f0b6",
+                {
+                    center: [27.5, -70.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_bcfe896e502453289e2aa5998b90f0b6);
+
+            
+
+        
+    
+            var tile_layer_937089dd17d38cfe976e675a215d0941 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_937089dd17d38cfe976e675a215d0941.addTo(map_bcfe896e502453289e2aa5998b90f0b6);
+        
+    
+            var tile_layer_624eda1a164379a44f853d03a26af55c = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_624eda1a164379a44f853d03a26af55c.addTo(map_bcfe896e502453289e2aa5998b90f0b6);
+        
+    
+            var tile_layer_bc12270a430dc295eb028ee8ad344438 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bc12270a430dc295eb028ee8ad344438.addTo(map_bcfe896e502453289e2aa5998b90f0b6);
+        
+    
+        function geo_json_1bee74f7272b7279c3ee8054389f8c59_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#3388ff", "fillColor": "#3388ff", "fillOpacity": 0.12, "weight": 2};
+            }
+        }
+
+        function geo_json_1bee74f7272b7279c3ee8054389f8c59_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_1bee74f7272b7279c3ee8054389f8c59 = L.geoJson(null, {
+                onEachFeature: geo_json_1bee74f7272b7279c3ee8054389f8c59_onEachFeature,
+            
+                style: geo_json_1bee74f7272b7279c3ee8054389f8c59_styler,
+            ...{
+}
+        });
+
+        function geo_json_1bee74f7272b7279c3ee8054389f8c59_add (data) {
+            geo_json_1bee74f7272b7279c3ee8054389f8c59
+                .addData(data);
+        }
+            geo_json_1bee74f7272b7279c3ee8054389f8c59_add({"bbox": [-82.8329390667659, 25.897787676059103, 16.476947478332, 47.64392323700177], "features": [{"bbox": [-80.16534979911442, 25.897787676059103, -80.15749281563757, 25.90484700125371], "geometry": {"coordinates": [[[-80.15973588513494, 25.904622921959554], [-80.15954506988807, 25.904598897545643], [-80.15935170102122, 25.904560212845173], [-80.15916233239065, 25.90450778330044], [-80.15897815638668, 25.904441939045743], [-80.15880033269772, 25.904363094682935], [-80.15862998100725, 25.904271746670336], [-80.15846817394275, 25.904168470196247], [-80.1583159303213, 25.904053915556606], [-80.15817420873412, 25.903928804059742], [-80.15804390151078, 25.903793923483985], [-80.15792582910069, 25.903650123116716], [-80.15782073490752, 25.90349830840616], [-80.15772928060915, 25.903339435259646], [-80.1576520419922, 25.903174504024154], [-80.15758950532782, 25.903004553187166], [-80.1575420643112, 25.90283065283739], [-80.15751001758419, 25.902653897926736], [-80.15749356685653, 25.90247540137571], [-80.15749281563757, 25.90229628706588], [-80.15750776858623, 25.902117682763457], [-80.15753833148352, 25.901940713018444], [-80.15758431182752, 25.901766492084324], [-80.15813965537018, 25.89997944448078], [-80.15823422668072, 25.899610170220445], [-80.15829105536042, 25.899424647378233], [-80.15829609515663, 25.89941055929897], [-80.15836606214066, 25.899239027768683], [-80.15845114763238, 25.89907318031777], [-80.15845863256955, 25.89906001510076], [-80.15855812340884, 25.898901165221762], [-80.15867148145144, 25.898750106848958], [-80.15868121567905, 25.89873820145404], [-80.15880783919353, 25.898595777800683], [-80.15894678596295, 25.898463085815838], [-80.15895851435045, 25.89845275699908], [-80.15910896419443, 25.898330598626355], [-80.15926985239975, 25.898219855707666], [-80.15928327311508, 25.89821137173969], [-80.15945352413058, 25.898112781410916], [-80.15963203850899, 25.898026977400235], [-80.15964679133963, 25.89802056534044], [-80.15983220032463, 25.897948179250395], [-80.16002347267823, 25.897889588461364], [-80.16003917855613, 25.897885409916547], [-80.16023518940261, 25.897840974034683], [-80.16043453226716, 25.897811026641648], [-80.16045077619842, 25.897809193928836], [-80.16066430853029, 25.897793483619452], [-80.1607532544241, 25.89779040644315], [-80.1608122982775, 25.897788996357722], [-80.1609012989665, 25.897787823804794], [-80.16096014362175, 25.897787676059103], [-80.161049148804, 25.897788401665142], [-80.16110811779755, 25.897789512798198], [-80.16119708076458, 25.897792140603638], [-80.16125602209237, 25.897794512710522], [-80.16134489344046, 25.897799041907263], [-80.16140354250358, 25.89780265803582], [-80.1614922683376, 25.897809078927068], [-80.16155115809572, 25.897813976388186], [-80.16163969260539, 25.897822297054677], [-80.16169828718789, 25.897828437766552], [-80.1617865791729, 25.89783864851122], [-80.1618448278763, 25.89784601674975], [-80.16193282793272, 25.897858106259708], [-80.16199104187724, 25.89786674154277], [-80.16207870239818, 25.89788070900972], [-80.16213670592211, 25.89789059203721], [-80.16222397480887, 25.897906430188396], [-80.16228155198543, 25.89791752014362], [-80.16236838612197, 25.897935216049824], [-80.16242583153091, 25.897947570432578], [-80.16251217792028, 25.897967119245042], [-80.16256908029987, 25.897980648532897], [-80.16265489492778, 25.898002033281898], [-80.16271161487191, 25.898016822639647], [-80.1627968456394, 25.898040036860323], [-80.1628531724319, 25.89805603815251], [-80.16293777083304, 25.898081068915584], [-80.16299337622065, 25.898098178997365], [-80.16307729824074, 25.898125002868326], [-80.16313288531136, 25.8981434437901], [-80.1632160851395, 25.89817206238485], [-80.16322632467272, 25.898175607821607], [-80.16326884217054, 25.898190426423298], [-80.1632965080208, 25.898199699519743], [-80.16332106189701, 25.89820760598327], [-80.16336321654843, 25.898220510473433], [-80.16340738835159, 25.898233226482446], [-80.16342476962792, 25.89823798567491], [-80.16345919196942, 25.898247066871193], [-80.16347731212305, 25.898251914669952], [-80.1635726101441, 25.898277765569187], [-80.16375522900942, 25.89833435286129], [-80.16393246621824, 25.898403537101878], [-80.16410326144194, 25.898484904398796], [-80.16426659288491, 25.898577967973935], [-80.1644214833968, 25.898682171074878], [-80.16456700631792, 25.898796890305192], [-80.16470229102295, 25.898921439353423], [-80.16482652812942, 25.89905507309843], [-80.16493897434025, 25.899196992066596], [-80.16503895689091, 25.89934634721423], [-80.16512587757512, 25.89950224500654], [-80.16519921632447, 25.89966375276289], [-80.16525853432086, 25.899829904236277], [-80.165303476623, 25.899999705393725], [-80.16533377429126, 25.90017214036297], [-80.1653492459981, 25.90034617750995], [-80.16534979911442, 25.90052077561067], [-80.16533543026526, 25.90069489008052], [-80.16530622535161, 25.900867479223884], [-80.16526235903805, 25.901037510466473], [-80.16520409370916, 25.90120396653328], [-80.16513177790121, 25.90136585153505], [-80.16504584421818, 25.9015221969269], [-80.16494680674465, 25.90167206730345], [-80.16483525797112, 25.9018145659957], [-80.16471186524991, 25.90194884043627], [-80.16462743761821, 25.9020338016404], [-80.1645841639003, 25.90207787994605], [-80.16448300951532, 25.90218091279127], [-80.16377208240831, 25.90290502663106], [-80.16274209611012, 25.9040304259233], [-80.16261432443926, 25.90415959675882], [-80.16247597128391, 25.90427952031469], [-80.16232785229529, 25.904389489565446], [-80.16217084070786, 25.904488856170953], [-80.1620058621909, 25.904577034299294], [-80.1618338893908, 25.904653504081104], [-80.16165593619613, 25.90471781467498], [-80.16147305175939, 25.904769586925887], [-80.16128631431076, 25.904808515600827], [-80.1610968248002, 25.904834371188734], [-80.16090570040556, 25.90484700125371], [-80.1607140679449, 25.904846331333925], [-80.16052305723188, 25.904832365380628], [-80.16033379441372, 25.90480518573483], [-80.16014739533041, 25.904764952641692], [-80.15996495893515, 25.90471190330561], [-80.15978756081411, 25.90464635049144], [-80.15973588513494, 25.904622921959554]]], "type": "Polygon"}, "id": "0", "properties": {"name": "Arch Creek Park 250 m Buffer", "project_id": "arch_creek"}, "type": "Feature"}, {"bbox": [-82.8329390667659, 27.95770532705568, -82.83102799420158, 27.95954426119724], "geometry": {"coordinates": [[[-82.83215007481408, 27.95954426119724], [-82.83219189181446, 27.959526878382572], [-82.8326157970964, 27.959194061478684], [-82.83269603084243, 27.959082689340573], [-82.8329390667659, 27.958512978364503], [-82.83254037278763, 27.95784525138058], [-82.83195689247366, 27.95770532705568], [-82.83135986419167, 27.9578852736409], [-82.83108161711614, 27.958240452426207], [-82.83103581999124, 27.958396234593934], [-82.83102799420158, 27.95880577026805], [-82.83119579377068, 27.959141925621232], [-82.83140619117805, 27.959382166649394], [-82.83164840831496, 27.95951168026678], [-82.83215007481408, 27.95954426119724]]], "type": "Polygon"}, "id": "1", "properties": {"name": "Sand Key Photogrammetry Footprint", "project_id": "sand_key"}, "type": "Feature"}, {"bbox": [16.47520342227603, 47.64257640196002, 16.476947478332, 47.64392323700177], "geometry": {"coordinates": [[[16.47608880650092, 47.64392323700177], [16.475867177337314, 47.64391520713327], [16.47565156870913, 47.643692185656036], [16.47546997457595, 47.643461925171124], [16.47520635320704, 47.643106219504936], [16.47520342227603, 47.64307361207296], [16.475395831505008, 47.6428303795415], [16.476211874012332, 47.64257640196002], [16.476242206862306, 47.642581452435984], [16.476518977507954, 47.642832250042474], [16.476947478332, 47.643610216488575], [16.47694650136474, 47.643646954834665], [16.476895665381303, 47.643771388825044], [16.476628047962514, 47.64384556535779], [16.47608880650092, 47.64392323700177]]], "type": "Polygon"}, "id": "2", "properties": {"name": "Helenenschacht Photogrammetry Footprint", "project_id": "helenenschacht"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_1bee74f7272b7279c3ee8054389f8c59.addTo(map_bcfe896e502453289e2aa5998b90f0b6);
+        
+    
+        window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id = null;
+
+        window.geo_json_1bee74f7272b7279c3ee8054389f8c59_highlight_project = function (projectId) {
+            geo_json_1bee74f7272b7279c3ee8054389f8c59.eachLayer(function (layer) {
+                if (
+                    layer.feature &&
+                    layer.feature.properties.project_id === projectId
+                ) {
+                    layer.setStyle({
+                        fillColor: '#B86B2B',
+                        color: '#B86B2B',
+                        weight: 3,
+                        fillOpacity: 0.28
+                    });
+                }
+            });
+        };
+
+        window.geo_json_1bee74f7272b7279c3ee8054389f8c59_reset_project = function (projectId) {
+            geo_json_1bee74f7272b7279c3ee8054389f8c59.eachLayer(function (layer) {
+                if (
+                    layer.feature &&
+                    layer.feature.properties.project_id === projectId
+                ) {
+                    geo_json_1bee74f7272b7279c3ee8054389f8c59.resetStyle(layer);
+                }
+            });
+        };
+
+        geo_json_1bee74f7272b7279c3ee8054389f8c59.eachLayer(function (layer) {
+            if (!layer.feature) {
+                return;
+            }
+
+            const projectId = layer.feature.properties.project_id;
+
+            layer.on('mouseover', function () {
+                window.geo_json_1bee74f7272b7279c3ee8054389f8c59_highlight_project(projectId);
+            });
+
+            layer.on('mouseout', function () {
+                if (
+                    window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id !== projectId
+                ) {
+                    window.geo_json_1bee74f7272b7279c3ee8054389f8c59_reset_project(projectId);
+                }
+            });
+        });
+
+        map_bcfe896e502453289e2aa5998b90f0b6.on('zoomend moveend', function () {
+            const activeProjectId =
+                window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id;
+
+            if (activeProjectId) {
+                window.setTimeout(function () {
+                    window.geo_json_1bee74f7272b7279c3ee8054389f8c59_highlight_project(
+                        activeProjectId
+                    );
+                }, 0);
+            }
+        });
+        
+    
+            map_bcfe896e502453289e2aa5998b90f0b6.fitBounds(
+                [[25.897787676059103, -82.8329390667659], [47.64392323700177, 16.476947478332]],
+                {"padding": [30, 30]}
+            );
+        
+    
+            var marker_ef8c8c2f1a4a63f5692817b84e2230ef = L.marker(
+                [25.90119503338623, -80.1612439574243],
+                {
+}
+            ).addTo(map_bcfe896e502453289e2aa5998b90f0b6);
+        
+    
+        var popup_4c711c31c1317323b1487429f472f8df = L.popup({
+  "maxWidth": 540,
+  "autoPan": false,
+});
+
+        
+            
+                var html_53478efaa3c2bf27b4cd52baa765db80 = $(`<div id="html_53478efaa3c2bf27b4cd52baa765db80" style="width: 100.0%; height: 100.0%;">     <div style="width: 500px;">         <h3 style="margin-bottom: 4px;">Arch Creek Park Context Map</h3>              <div id="arch-creek-park-context-map-carousel" data-index="0" style="margin: 8px 0;">                  <img             data-carousel-slide             src="../data/previews/arch_creek_map.png"             alt="Arch Creek Park QGIS context map preview"             onclick="document.getElementById('arch-creek-park-context-map-carousel').style.display='none'; document.getElementById('arch-creek-park-context-map-details').style.display='none'; document.getElementById('arch-creek-park-context-map-expanded-img').src=this.src; document.getElementById('arch-creek-park-context-map-expanded-img').alt=this.alt; document.getElementById('arch-creek-park-context-map-expanded').style.display='block';"             style="display: block; width: 100%; height: 220px; object-fit: contain; border-radius: 4px; background: #f4f4f4; cursor: pointer;"         >                       </div>                   <div id="arch-creek-park-context-map-expanded" style="display: none; margin: 8px 0;">         <button             type="button"             onclick="document.getElementById('arch-creek-park-context-map-expanded').style.display='none'; document.getElementById('arch-creek-park-context-map-carousel').style.display='block'; document.getElementById('arch-creek-park-context-map-details').style.display='block';"             style="margin-bottom: 6px; padding: 4px 8px; cursor: pointer;"         >             ← Back         </button>         <img             id="arch-creek-park-context-map-expanded-img"             src=""             alt="Expanded preview"             style="width: 100%; max-height: 420px; object-fit: contain; border-radius: 4px; background: #f4f4f4;"         >     </div>              <div id="arch-creek-park-context-map-details">             <p style="margin: 2px 0;"><strong>Project 01</strong></p>             <p style="margin: 2px 0;"><strong>Tools:</strong> QGIS, public GIS data</p>             <p style="margin: 2px 0;"><strong>Inputs:</strong> <a href="https://gis-mdc.opendata.arcgis.com/datasets/MDC::county-park-boundary-view/about" target="_blank">Miami-Dade public GIS layers</a></p>             <p style="margin: 2px 0;"><strong>Outputs:</strong> Site context map, buffers, styled vector layers</p>             <p style="margin: 2px 0;"><strong>Repo:</strong> <a href="https://github.com/jrangamar/drone-gis-portfolio/tree/main/01_south_florida_qgis_map" target="_blank">Project 01 repo folder</a></p>                          <div style="display: flex; gap: 6px; margin-top: 8px;">                 <button                     type="button"                     onclick="map_bcfe896e502453289e2aa5998b90f0b6.fitBounds([[25.897787676059103, -80.16534979911442], [25.90484700125371, -80.15749281563757]], {padding: [30, 30]}); return false;"                     style="padding: 4px 8px; cursor: pointer;"                 >                     Zoom to project area                 </button>                 <button                     type="button"                     onclick="map_bcfe896e502453289e2aa5998b90f0b6.fitBounds([[25.897787676059103, -82.8329390667659], [47.64392323700177, 16.476947478332]], {padding: [30, 30]}); return false;"                     style="padding: 4px 8px; cursor: pointer;"                 >                     Reset map view                 </button>             </div>                  </div>     </div>     </div>`)[0];
+                popup_4c711c31c1317323b1487429f472f8df.setContent(html_53478efaa3c2bf27b4cd52baa765db80);
+            
+        
+
+        marker_ef8c8c2f1a4a63f5692817b84e2230ef.bindPopup(popup_4c711c31c1317323b1487429f472f8df)
+        ;
+
+        
+    
+    
+            marker_ef8c8c2f1a4a63f5692817b84e2230ef.bindTooltip(
+                `<div>
+                     Project 01: Arch Creek Park Context Map
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        marker_ef8c8c2f1a4a63f5692817b84e2230ef.on('mouseover', function () {
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_highlight_project(
+                "arch_creek"
+            );
+        });
+
+        marker_ef8c8c2f1a4a63f5692817b84e2230ef.on('mouseout', function () {
+            if (
+                window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id !==
+                "arch_creek"
+            ) {
+                window.geo_json_1bee74f7272b7279c3ee8054389f8c59_reset_project(
+                    "arch_creek"
+                );
+            }
+        });
+
+        marker_ef8c8c2f1a4a63f5692817b84e2230ef.on('popupopen', function () {
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id =
+                "arch_creek";
+
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_highlight_project(
+                "arch_creek"
+            );
+
+            window.setTimeout(function () {
+                const popup = marker_ef8c8c2f1a4a63f5692817b84e2230ef.getPopup();
+                const popupElement = popup && popup.getElement();
+                const mapElement = map_bcfe896e502453289e2aa5998b90f0b6.getContainer();
+
+                if (!popupElement || !mapElement) {
+                    return;
+                }
+
+                popupElement.querySelectorAll('img').forEach(function (image) {
+                    image.style.transition = 'none';
+                    image.style.opacity = '1';
+                });
+
+                const popupRect = popupElement.getBoundingClientRect();
+                const mapRect = mapElement.getBoundingClientRect();
+                const insetX = mapRect.width * 0.10;
+                const insetY = mapRect.height * 0.10;
+                const safeLeft = mapRect.left + insetX;
+                const safeRight = mapRect.right - insetX;
+                const safeTop = mapRect.top + insetY;
+                const safeBottom = mapRect.bottom - insetY;
+
+                let panX = 0;
+                let panY = 0;
+
+                if (popupRect.left < safeLeft) {
+                    panX = popupRect.left - safeLeft;
+                } else if (popupRect.right > safeRight) {
+                    panX = popupRect.right - safeRight;
+                }
+
+                if (popupRect.top < safeTop) {
+                    panY = popupRect.top - safeTop;
+                } else if (popupRect.bottom > safeBottom) {
+                    panY = popupRect.bottom - safeBottom;
+                }
+
+                if (panX !== 0 || panY !== 0) {
+                    map_bcfe896e502453289e2aa5998b90f0b6.panBy([panX, panY]);
+                }
+            }, 50);
+        });
+
+        marker_ef8c8c2f1a4a63f5692817b84e2230ef.on('popupclose', function () {
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id = null;
+
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_reset_project(
+                "arch_creek"
+            );
+
+            const popup = marker_ef8c8c2f1a4a63f5692817b84e2230ef.getPopup();
+            const popupElement = popup && popup.getElement();
+
+            if (popupElement) {
+                popupElement.querySelectorAll('img').forEach(function (image) {
+                    image.style.transition = 'opacity 50ms ease';
+                    image.style.opacity = '0';
+                });
+
+                window.setTimeout(function () {
+                    const expandedView = popupElement.querySelector(
+                        '[id$="-expanded"]'
+                    );
+                    const carousel = popupElement.querySelector(
+                        '[id$="-carousel"]'
+                    );
+                    const details = popupElement.querySelector(
+                        '[id$="-details"]'
+                    );
+
+                    if (expandedView) {
+                        expandedView.style.display = 'none';
+                    }
+
+                    if (carousel) {
+                        carousel.style.display = 'block';
+                        carousel.dataset.index = '0';
+
+                        const slides = carousel.querySelectorAll(
+                            '[data-carousel-slide]'
+                        );
+
+                        slides.forEach(function (slide, index) {
+                            slide.style.display = index === 0 ? 'block' : 'none';
+                        });
+
+                        const counter = carousel.querySelector(
+                            '[id$="-carousel-counter"]'
+                        );
+
+                        if (counter && slides.length > 0) {
+                            counter.textContent = '1 / ' + slides.length;
+                        }
+                    }
+
+                    if (details) {
+                        details.style.display = 'block';
+                    }
+                }, 100);
+            }
+        });
+        
+    
+            var marker_c9f05cf773a94b08a1db2300f4db03c1 = L.marker(
+                [27.958617380463377, -82.8319421532225],
+                {
+}
+            ).addTo(map_bcfe896e502453289e2aa5998b90f0b6);
+        
+    
+        var popup_9d95225cbcd52bf308dae519665b0ba8 = L.popup({
+  "maxWidth": 540,
+  "autoPan": false,
+});
+
+        
+            
+                var html_c1a4b742e8e78525d8e89da51a0789a5 = $(`<div id="html_c1a4b742e8e78525d8e89da51a0789a5" style="width: 100.0%; height: 100.0%;">     <div style="width: 500px;">         <h3 style="margin-bottom: 4px;">Sand Key Photogrammetry Case Study</h3>              <div id="sand-key-photogrammetry-case-study-carousel" data-index="0" style="margin: 8px 0;">                  <img             data-carousel-slide             src="..\/data\/previews\/sand_key_orthophoto.png"             alt="Sand Key orthophoto preview"             onclick="document.getElementById('sand-key-photogrammetry-case-study-carousel').style.display='none'; document.getElementById('sand-key-photogrammetry-case-study-details').style.display='none'; document.getElementById('sand-key-photogrammetry-case-study-expanded-img').src=this.src; document.getElementById('sand-key-photogrammetry-case-study-expanded-img').alt=this.alt; document.getElementById('sand-key-photogrammetry-case-study-expanded').style.display='block';"             style="display: block; width: 100%; height: 220px; object-fit: contain; border-radius: 4px; background: #f4f4f4; cursor: pointer;"         >                  <img             data-carousel-slide             src="..\/data\/previews\/dsm.png"             alt="DSM preview"             onclick="document.getElementById('sand-key-photogrammetry-case-study-carousel').style.display='none'; document.getElementById('sand-key-photogrammetry-case-study-details').style.display='none'; document.getElementById('sand-key-photogrammetry-case-study-expanded-img').src=this.src; document.getElementById('sand-key-photogrammetry-case-study-expanded-img').alt=this.alt; document.getElementById('sand-key-photogrammetry-case-study-expanded').style.display='block';"             style="display: none; width: 100%; height: 220px; object-fit: contain; border-radius: 4px; background: #f4f4f4; cursor: pointer;"         >                  <img             data-carousel-slide             src="..\/data\/previews\/hillshade_qgis.png"             alt="Hillshade preview"             onclick="document.getElementById('sand-key-photogrammetry-case-study-carousel').style.display='none'; document.getElementById('sand-key-photogrammetry-case-study-details').style.display='none'; document.getElementById('sand-key-photogrammetry-case-study-expanded-img').src=this.src; document.getElementById('sand-key-photogrammetry-case-study-expanded-img').alt=this.alt; document.getElementById('sand-key-photogrammetry-case-study-expanded').style.display='block';"             style="display: none; width: 100%; height: 220px; object-fit: contain; border-radius: 4px; background: #f4f4f4; cursor: pointer;"         >                  <img             data-carousel-slide             src="..\/data\/previews\/sand_key_point_cloud.png"             alt="Sand Key point cloud preview"             onclick="document.getElementById('sand-key-photogrammetry-case-study-carousel').style.display='none'; document.getElementById('sand-key-photogrammetry-case-study-details').style.display='none'; document.getElementById('sand-key-photogrammetry-case-study-expanded-img').src=this.src; document.getElementById('sand-key-photogrammetry-case-study-expanded-img').alt=this.alt; document.getElementById('sand-key-photogrammetry-case-study-expanded').style.display='block';"             style="display: none; width: 100%; height: 220px; object-fit: contain; border-radius: 4px; background: #f4f4f4; cursor: pointer;"         >                           <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px;">             <button                 type="button"                 onclick="const carousel=document.getElementById('sand-key-photogrammetry-case-study-carousel');const slides=carousel.querySelectorAll('[data-carousel-slide]');let index=parseInt(carousel.dataset.index || '0');slides[index].style.display='none';index=(index-1+slides.length)%slides.length;slides[index].style.display='block';carousel.dataset.index=index;document.getElementById('sand-key-photogrammetry-case-study-carousel-counter').textContent=(index+1)+' / '+slides.length;return false;"                 style="padding: 4px 8px; cursor: pointer;"             >                 ← Previous             </button>             <span id="sand-key-photogrammetry-case-study-carousel-counter" style="font-size: 12px;">                 1 / 4             </span>             <button                 type="button"                 onclick="const carousel=document.getElementById('sand-key-photogrammetry-case-study-carousel');const slides=carousel.querySelectorAll('[data-carousel-slide]');let index=parseInt(carousel.dataset.index || '0');slides[index].style.display='none';index=(index+1)%slides.length;slides[index].style.display='block';carousel.dataset.index=index;document.getElementById('sand-key-photogrammetry-case-study-carousel-counter').textContent=(index+1)+' / '+slides.length;return false;"                 style="padding: 4px 8px; cursor: pointer;"             >                 Next →             </button>         </div>              </div>                   <div id="sand-key-photogrammetry-case-study-expanded" style="display: none; margin: 8px 0;">         <button             type="button"             onclick="document.getElementById('sand-key-photogrammetry-case-study-expanded').style.display='none'; document.getElementById('sand-key-photogrammetry-case-study-carousel').style.display='block'; document.getElementById('sand-key-photogrammetry-case-study-details').style.display='block';"             style="margin-bottom: 6px; padding: 4px 8px; cursor: pointer;"         >             ← Back         </button>         <img             id="sand-key-photogrammetry-case-study-expanded-img"             src=""             alt="Expanded preview"             style="width: 100%; max-height: 420px; object-fit: contain; border-radius: 4px; background: #f4f4f4;"         >     </div>              <div id="sand-key-photogrammetry-case-study-details">             <p style="margin: 2px 0;"><strong>Project 02</strong></p>             <p style="margin: 2px 0;"><strong>Tools:</strong> WebODM, Docker, QGIS</p>             <p style="margin: 2px 0;"><strong>Inputs:</strong> <a href="https://github.com/pierotofy/drone_dataset_sand_key/tree/master" target="_blank">Sand Key drone imagery dataset</a></p>             <p style="margin: 2px 0;"><strong>Outputs:</strong> Orthophoto, DSM, hillshade + contours, point cloud</p>             <p style="margin: 2px 0;"><strong>Repo:</strong> <a href="https://github.com/jrangamar/drone-gis-portfolio/tree/main/02_photogrammetry" target="_blank">Project 02 repo folder</a></p>                          <div style="display: flex; gap: 6px; margin-top: 8px;">                 <button                     type="button"                     onclick="map_bcfe896e502453289e2aa5998b90f0b6.fitBounds([[27.95770532705568, -82.8329390667659], [27.95954426119724, -82.83102799420158]], {padding: [30, 30]}); return false;"                     style="padding: 4px 8px; cursor: pointer;"                 >                     Zoom to project area                 </button>                 <button                     type="button"                     onclick="map_bcfe896e502453289e2aa5998b90f0b6.fitBounds([[25.897787676059103, -82.8329390667659], [47.64392323700177, 16.476947478332]], {padding: [30, 30]}); return false;"                     style="padding: 4px 8px; cursor: pointer;"                 >                     Reset map view                 </button>             </div>                  </div>     </div>     </div>`)[0];
+                popup_9d95225cbcd52bf308dae519665b0ba8.setContent(html_c1a4b742e8e78525d8e89da51a0789a5);
+            
+        
+
+        marker_c9f05cf773a94b08a1db2300f4db03c1.bindPopup(popup_9d95225cbcd52bf308dae519665b0ba8)
+        ;
+
+        
+    
+    
+            marker_c9f05cf773a94b08a1db2300f4db03c1.bindTooltip(
+                `<div>
+                     Project 02: Sand Key Photogrammetry Case Study
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        marker_c9f05cf773a94b08a1db2300f4db03c1.on('mouseover', function () {
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_highlight_project(
+                "sand_key"
+            );
+        });
+
+        marker_c9f05cf773a94b08a1db2300f4db03c1.on('mouseout', function () {
+            if (
+                window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id !==
+                "sand_key"
+            ) {
+                window.geo_json_1bee74f7272b7279c3ee8054389f8c59_reset_project(
+                    "sand_key"
+                );
+            }
+        });
+
+        marker_c9f05cf773a94b08a1db2300f4db03c1.on('popupopen', function () {
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id =
+                "sand_key";
+
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_highlight_project(
+                "sand_key"
+            );
+
+            window.setTimeout(function () {
+                const popup = marker_c9f05cf773a94b08a1db2300f4db03c1.getPopup();
+                const popupElement = popup && popup.getElement();
+                const mapElement = map_bcfe896e502453289e2aa5998b90f0b6.getContainer();
+
+                if (!popupElement || !mapElement) {
+                    return;
+                }
+
+                popupElement.querySelectorAll('img').forEach(function (image) {
+                    image.style.transition = 'none';
+                    image.style.opacity = '1';
+                });
+
+                const popupRect = popupElement.getBoundingClientRect();
+                const mapRect = mapElement.getBoundingClientRect();
+                const insetX = mapRect.width * 0.10;
+                const insetY = mapRect.height * 0.10;
+                const safeLeft = mapRect.left + insetX;
+                const safeRight = mapRect.right - insetX;
+                const safeTop = mapRect.top + insetY;
+                const safeBottom = mapRect.bottom - insetY;
+
+                let panX = 0;
+                let panY = 0;
+
+                if (popupRect.left < safeLeft) {
+                    panX = popupRect.left - safeLeft;
+                } else if (popupRect.right > safeRight) {
+                    panX = popupRect.right - safeRight;
+                }
+
+                if (popupRect.top < safeTop) {
+                    panY = popupRect.top - safeTop;
+                } else if (popupRect.bottom > safeBottom) {
+                    panY = popupRect.bottom - safeBottom;
+                }
+
+                if (panX !== 0 || panY !== 0) {
+                    map_bcfe896e502453289e2aa5998b90f0b6.panBy([panX, panY]);
+                }
+            }, 50);
+        });
+
+        marker_c9f05cf773a94b08a1db2300f4db03c1.on('popupclose', function () {
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id = null;
+
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_reset_project(
+                "sand_key"
+            );
+
+            const popup = marker_c9f05cf773a94b08a1db2300f4db03c1.getPopup();
+            const popupElement = popup && popup.getElement();
+
+            if (popupElement) {
+                popupElement.querySelectorAll('img').forEach(function (image) {
+                    image.style.transition = 'opacity 50ms ease';
+                    image.style.opacity = '0';
+                });
+
+                window.setTimeout(function () {
+                    const expandedView = popupElement.querySelector(
+                        '[id$="-expanded"]'
+                    );
+                    const carousel = popupElement.querySelector(
+                        '[id$="-carousel"]'
+                    );
+                    const details = popupElement.querySelector(
+                        '[id$="-details"]'
+                    );
+
+                    if (expandedView) {
+                        expandedView.style.display = 'none';
+                    }
+
+                    if (carousel) {
+                        carousel.style.display = 'block';
+                        carousel.dataset.index = '0';
+
+                        const slides = carousel.querySelectorAll(
+                            '[data-carousel-slide]'
+                        );
+
+                        slides.forEach(function (slide, index) {
+                            slide.style.display = index === 0 ? 'block' : 'none';
+                        });
+
+                        const counter = carousel.querySelector(
+                            '[id$="-carousel-counter"]'
+                        );
+
+                        if (counter && slides.length > 0) {
+                            counter.textContent = '1 / ' + slides.length;
+                        }
+                    }
+
+                    if (details) {
+                        details.style.display = 'block';
+                    }
+                }, 100);
+            }
+        });
+        
+    
+            var marker_6ff3d725e9a2872d8fefaf54463d9ee6 = L.marker(
+                [47.643287887185586, 16.476091384640217],
+                {
+}
+            ).addTo(map_bcfe896e502453289e2aa5998b90f0b6);
+        
+    
+        var popup_82bdb6524b77f2d9129eb589aa3355c4 = L.popup({
+  "maxWidth": 540,
+  "autoPan": false,
+});
+
+        
+            
+                var html_cb3c2d4edbafdae9616f9296c30599c3 = $(`<div id="html_cb3c2d4edbafdae9616f9296c30599c3" style="width: 100.0%; height: 100.0%;">     <div style="width: 500px;">         <h3 style="margin-bottom: 4px;">Helenenschacht Photogrammetry Case Study</h3>              <div id="helenenschacht-photogrammetry-case-study-carousel" data-index="0" style="margin: 8px 0;">                  <img             data-carousel-slide             src="..\/data\/previews\/helenenschacht_orthophoto.png"             alt="Helenenschacht orthophoto preview"             onclick="document.getElementById('helenenschacht-photogrammetry-case-study-carousel').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-details').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-expanded-img').src=this.src; document.getElementById('helenenschacht-photogrammetry-case-study-expanded-img').alt=this.alt; document.getElementById('helenenschacht-photogrammetry-case-study-expanded').style.display='block';"             style="display: block; width: 100%; height: 220px; object-fit: contain; border-radius: 4px; background: #f4f4f4; cursor: pointer;"         >                  <img             data-carousel-slide             src="..\/data\/previews\/helenenschacht_dsm.png"             alt="Helenenschacht DSM preview"             onclick="document.getElementById('helenenschacht-photogrammetry-case-study-carousel').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-details').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-expanded-img').src=this.src; document.getElementById('helenenschacht-photogrammetry-case-study-expanded-img').alt=this.alt; document.getElementById('helenenschacht-photogrammetry-case-study-expanded').style.display='block';"             style="display: none; width: 100%; height: 220px; object-fit: contain; border-radius: 4px; background: #f4f4f4; cursor: pointer;"         >                  <img             data-carousel-slide             src="..\/data\/previews\/helenenschacht_hillshade.png"             alt="Helenenschacht hillshade preview"             onclick="document.getElementById('helenenschacht-photogrammetry-case-study-carousel').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-details').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-expanded-img').src=this.src; document.getElementById('helenenschacht-photogrammetry-case-study-expanded-img').alt=this.alt; document.getElementById('helenenschacht-photogrammetry-case-study-expanded').style.display='block';"             style="display: none; width: 100%; height: 220px; object-fit: contain; border-radius: 4px; background: #f4f4f4; cursor: pointer;"         >                  <img             data-carousel-slide             src="..\/data\/previews\/slope_contours_1m.png"             alt="Slope with 1 meter contours preview"             onclick="document.getElementById('helenenschacht-photogrammetry-case-study-carousel').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-details').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-expanded-img').src=this.src; document.getElementById('helenenschacht-photogrammetry-case-study-expanded-img').alt=this.alt; document.getElementById('helenenschacht-photogrammetry-case-study-expanded').style.display='block';"             style="display: none; width: 100%; height: 220px; object-fit: contain; border-radius: 4px; background: #f4f4f4; cursor: pointer;"         >                  <img             data-carousel-slide             src="..\/data\/previews\/helenenschacht_point_cloud.png"             alt="Helenenschacht point cloud preview"             onclick="document.getElementById('helenenschacht-photogrammetry-case-study-carousel').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-details').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-expanded-img').src=this.src; document.getElementById('helenenschacht-photogrammetry-case-study-expanded-img').alt=this.alt; document.getElementById('helenenschacht-photogrammetry-case-study-expanded').style.display='block';"             style="display: none; width: 100%; height: 220px; object-fit: contain; border-radius: 4px; background: #f4f4f4; cursor: pointer;"         >                           <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px;">             <button                 type="button"                 onclick="const carousel=document.getElementById('helenenschacht-photogrammetry-case-study-carousel');const slides=carousel.querySelectorAll('[data-carousel-slide]');let index=parseInt(carousel.dataset.index || '0');slides[index].style.display='none';index=(index-1+slides.length)%slides.length;slides[index].style.display='block';carousel.dataset.index=index;document.getElementById('helenenschacht-photogrammetry-case-study-carousel-counter').textContent=(index+1)+' / '+slides.length;return false;"                 style="padding: 4px 8px; cursor: pointer;"             >                 ← Previous             </button>             <span id="helenenschacht-photogrammetry-case-study-carousel-counter" style="font-size: 12px;">                 1 / 5             </span>             <button                 type="button"                 onclick="const carousel=document.getElementById('helenenschacht-photogrammetry-case-study-carousel');const slides=carousel.querySelectorAll('[data-carousel-slide]');let index=parseInt(carousel.dataset.index || '0');slides[index].style.display='none';index=(index+1)%slides.length;slides[index].style.display='block';carousel.dataset.index=index;document.getElementById('helenenschacht-photogrammetry-case-study-carousel-counter').textContent=(index+1)+' / '+slides.length;return false;"                 style="padding: 4px 8px; cursor: pointer;"             >                 Next →             </button>         </div>              </div>                   <div id="helenenschacht-photogrammetry-case-study-expanded" style="display: none; margin: 8px 0;">         <button             type="button"             onclick="document.getElementById('helenenschacht-photogrammetry-case-study-expanded').style.display='none'; document.getElementById('helenenschacht-photogrammetry-case-study-carousel').style.display='block'; document.getElementById('helenenschacht-photogrammetry-case-study-details').style.display='block';"             style="margin-bottom: 6px; padding: 4px 8px; cursor: pointer;"         >             ← Back         </button>         <img             id="helenenschacht-photogrammetry-case-study-expanded-img"             src=""             alt="Expanded preview"             style="width: 100%; max-height: 420px; object-fit: contain; border-radius: 4px; background: #f4f4f4;"         >     </div>              <div id="helenenschacht-photogrammetry-case-study-details">             <p style="margin: 2px 0;"><strong>Project 02</strong></p>             <p style="margin: 2px 0;"><strong>Tools:</strong> WebODM, Docker, QGIS</p>             <p style="margin: 2px 0;"><strong>Inputs:</strong> <a href="https://github.com/OpenDroneMap/odm_data_helenenschacht/tree/main" target="_blank">Helenenschacht drone imagery dataset</a></p>             <p style="margin: 2px 0;"><strong>Outputs:</strong> Orthophoto, DSM, hillshade, slope + contours, point cloud</p>             <p style="margin: 2px 0;"><strong>Repo:</strong> <a href="https://github.com/jrangamar/drone-gis-portfolio/tree/main/02_photogrammetry" target="_blank">Project 02 repo folder</a></p>                          <div style="display: flex; gap: 6px; margin-top: 8px;">                 <button                     type="button"                     onclick="map_bcfe896e502453289e2aa5998b90f0b6.fitBounds([[47.64257640196002, 16.47520342227603], [47.64392323700177, 16.476947478332]], {padding: [30, 30]}); return false;"                     style="padding: 4px 8px; cursor: pointer;"                 >                     Zoom to project area                 </button>                 <button                     type="button"                     onclick="map_bcfe896e502453289e2aa5998b90f0b6.fitBounds([[25.897787676059103, -82.8329390667659], [47.64392323700177, 16.476947478332]], {padding: [30, 30]}); return false;"                     style="padding: 4px 8px; cursor: pointer;"                 >                     Reset map view                 </button>             </div>                  </div>     </div>     </div>`)[0];
+                popup_82bdb6524b77f2d9129eb589aa3355c4.setContent(html_cb3c2d4edbafdae9616f9296c30599c3);
+            
+        
+
+        marker_6ff3d725e9a2872d8fefaf54463d9ee6.bindPopup(popup_82bdb6524b77f2d9129eb589aa3355c4)
+        ;
+
+        
+    
+    
+            marker_6ff3d725e9a2872d8fefaf54463d9ee6.bindTooltip(
+                `<div>
+                     Project 02: Helenenschacht Photogrammetry Case Study
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        marker_6ff3d725e9a2872d8fefaf54463d9ee6.on('mouseover', function () {
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_highlight_project(
+                "helenenschacht"
+            );
+        });
+
+        marker_6ff3d725e9a2872d8fefaf54463d9ee6.on('mouseout', function () {
+            if (
+                window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id !==
+                "helenenschacht"
+            ) {
+                window.geo_json_1bee74f7272b7279c3ee8054389f8c59_reset_project(
+                    "helenenschacht"
+                );
+            }
+        });
+
+        marker_6ff3d725e9a2872d8fefaf54463d9ee6.on('popupopen', function () {
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id =
+                "helenenschacht";
+
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_highlight_project(
+                "helenenschacht"
+            );
+
+            window.setTimeout(function () {
+                const popup = marker_6ff3d725e9a2872d8fefaf54463d9ee6.getPopup();
+                const popupElement = popup && popup.getElement();
+                const mapElement = map_bcfe896e502453289e2aa5998b90f0b6.getContainer();
+
+                if (!popupElement || !mapElement) {
+                    return;
+                }
+
+                popupElement.querySelectorAll('img').forEach(function (image) {
+                    image.style.transition = 'none';
+                    image.style.opacity = '1';
+                });
+
+                const popupRect = popupElement.getBoundingClientRect();
+                const mapRect = mapElement.getBoundingClientRect();
+                const insetX = mapRect.width * 0.10;
+                const insetY = mapRect.height * 0.10;
+                const safeLeft = mapRect.left + insetX;
+                const safeRight = mapRect.right - insetX;
+                const safeTop = mapRect.top + insetY;
+                const safeBottom = mapRect.bottom - insetY;
+
+                let panX = 0;
+                let panY = 0;
+
+                if (popupRect.left < safeLeft) {
+                    panX = popupRect.left - safeLeft;
+                } else if (popupRect.right > safeRight) {
+                    panX = popupRect.right - safeRight;
+                }
+
+                if (popupRect.top < safeTop) {
+                    panY = popupRect.top - safeTop;
+                } else if (popupRect.bottom > safeBottom) {
+                    panY = popupRect.bottom - safeBottom;
+                }
+
+                if (panX !== 0 || panY !== 0) {
+                    map_bcfe896e502453289e2aa5998b90f0b6.panBy([panX, panY]);
+                }
+            }, 50);
+        });
+
+        marker_6ff3d725e9a2872d8fefaf54463d9ee6.on('popupclose', function () {
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_active_project_id = null;
+
+            window.geo_json_1bee74f7272b7279c3ee8054389f8c59_reset_project(
+                "helenenschacht"
+            );
+
+            const popup = marker_6ff3d725e9a2872d8fefaf54463d9ee6.getPopup();
+            const popupElement = popup && popup.getElement();
+
+            if (popupElement) {
+                popupElement.querySelectorAll('img').forEach(function (image) {
+                    image.style.transition = 'opacity 50ms ease';
+                    image.style.opacity = '0';
+                });
+
+                window.setTimeout(function () {
+                    const expandedView = popupElement.querySelector(
+                        '[id$="-expanded"]'
+                    );
+                    const carousel = popupElement.querySelector(
+                        '[id$="-carousel"]'
+                    );
+                    const details = popupElement.querySelector(
+                        '[id$="-details"]'
+                    );
+
+                    if (expandedView) {
+                        expandedView.style.display = 'none';
+                    }
+
+                    if (carousel) {
+                        carousel.style.display = 'block';
+                        carousel.dataset.index = '0';
+
+                        const slides = carousel.querySelectorAll(
+                            '[data-carousel-slide]'
+                        );
+
+                        slides.forEach(function (slide, index) {
+                            slide.style.display = index === 0 ? 'block' : 'none';
+                        });
+
+                        const counter = carousel.querySelector(
+                            '[id$="-carousel-counter"]'
+                        );
+
+                        if (counter && slides.length > 0) {
+                            counter.textContent = '1 / ' + slides.length;
+                        }
+                    }
+
+                    if (details) {
+                        details.style.display = 'block';
+                    }
+                }, 100);
+            }
+        });
+        
+    
+            var layer_control_3c4ae6200cc999ddc2386162caf484cb_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_937089dd17d38cfe976e675a215d0941,
+                    "Light basemap" : tile_layer_624eda1a164379a44f853d03a26af55c,
+                    "Dark basemap" : tile_layer_bc12270a430dc295eb028ee8ad344438,
+                },
+                overlays :  {
+                    "Project areas" : geo_json_1bee74f7272b7279c3ee8054389f8c59,
+                },
+            };
+            let layer_control_3c4ae6200cc999ddc2386162caf484cb = L.control.layers(
+                layer_control_3c4ae6200cc999ddc2386162caf484cb_layers.base_layers,
+                layer_control_3c4ae6200cc999ddc2386162caf484cb_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_bcfe896e502453289e2aa5998b90f0b6);
+
+        
+</script>
+</html>
