@@ -6,7 +6,7 @@ This project publishes selected outputs from earlier GIS and photogrammetry work
 
 ## Live Demo
 
-GitHub Pages deployment pending.
+(https://jrangamar.github.io/drone-gis-portfolio/)
 
 ## Project Goals
 
