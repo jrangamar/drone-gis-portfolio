@@ -135,18 +135,14 @@ web/index.html
 Use a local HTTP server rather than opening `index.html` directly:
 
 ```bash
-python3 -m http.server 8001 --directory web
+python3 -m http.server 8000 --directory web
 ```
 
 Then open:
 
 ```text
-http://localhost:8001
+http://localhost:8000
 ```
-
-Port `8001` is used because WebODM may already be running on `localhost:8000`.
-
-Stop the local server with `Ctrl-C`.
 
 ## Rebuilding Project Areas
 
